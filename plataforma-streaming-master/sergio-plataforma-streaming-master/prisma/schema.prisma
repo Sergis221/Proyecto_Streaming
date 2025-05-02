@@ -1,0 +1,18 @@
+datasource db {
+  provider = "postgresql" // O el motor que uses (mysql, sqlite, etc)
+  url      = env("DATABASE_URL1")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Contenido {
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  tipo      String // 'pelicula' o 'serie'
+  genero    String
+  duracion  Int
+  fecha     DateTime
+  productor String
+}
